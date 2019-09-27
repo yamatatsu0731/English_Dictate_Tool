@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dictation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
+	<style type="text/css">
+		*, *:before, *:after {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		html{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			height: 100%;
+			background-color: #DFDEEE;
+			padding:0;
+			margin: 0;
+			font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+		}
+		.file input{
+			display: none;
+		}
+		#wrap{
+			width: 100%;
+			height: 100%;
+		}
+		#left_content{
+			float: left;
+			width: 500px;
+			height: 100%;
+			background-color: #563E7D;
+			color: white;
+			margin: 0;
+			padding:0;
+		}
+		#right_content{
+			margin-top: 34px;
+			margin-left: 20px;
+			padding: 10px;
+			float: left;
+			width: 1300px;
+			height: 850px;
+			overflow: auto;
+			
+		}
+		#text_input{
+			width: 490px;
+			height: 0;
+			overflow: auto;
+			background-color: #DFDEEE;
+			margin: 0;
+			border: 1px solid #563E7D;
+			border-radius: 30px;
+			margin: 10px 5px 0 5px;
+			padding: 0;
+			font-family: inherit;
+			display: none;
+		}
+		#correct{
+			position: absolute;
+			background-color: white;
+			border: 4px double black;
+			border-radius: 5px;
+			z-index:100;
+			display: none;
+		}
+		.box{
+			background-color: #DFDEEE;
+			margin-top: 20px;
+			padding: 0 0 20px 0;
+			color: black;
+			font-size: 2em;
+			opacity: 0;
+			display: none;
+		}
+		.box .title{
+			cursor: pointer;
+			border-left: 4px solid #563E7D;
+			text-indent: 1em;
+			margin: 0 0 0 20px;
+			padding-top: 50px;
+			height: 100px;
+		}
+		
+		#text_box{
+			margin-top: -120px;
+		}
+		#explanation_box {
+			margin-top: -120px;
+		}
+		#save_box{
+			margin-top: -120px;
+		}
+		#explanation{
+			margin-top: 10px;
+			font-size: 13px;
+			margin-left: 80px;
+			height: 0;
+			overflow: hidden;
+		}
+		#explanation p{
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="correct">
+	
+	</div>
+	<div id="wrap">
+		<div id="left_content">
+			<div id="audio_box" class="box">
+				<label for="audio_input" class="file">  
+					<p class="title">Select Audio File</p>
+					<p>オーディオファイルの選択</p>
+					<input id="audio_input" type="file" />
+				</label> 
+				
+				<audio id="audio_source" src=""></audio>
+			</div>
+			<div id="text_box" class="box">
+				<p class="title">Input Source Text</p>
+				<textarea id="text_input"></textarea>
+			</div>
+			
+			<div id="explanation_box" class="box">
+				<p class="title">Dictate the Audio</p>
+				<div id="explanation">
+					<p>Enter: Switch play/pause</p>
+					<p>Tab  : Rewind 5sec</p>
+					<p>Tab*2: Rewind 1sec</p>
+					<p>Space: Next word</p>
+					<p>Shift+Space: Prev word</p>
+					<p>Ctrl+A: Check answer the CURRENT paragraph</p>
+					<p>Ctrl+Shift+A: Check answer the ALL paragraph</p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div id="right_content">
+
+			
+		</div>
+	</div>
+</body>
+
+</html>
