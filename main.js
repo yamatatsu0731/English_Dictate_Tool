@@ -258,8 +258,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#audio_input').on('change', function(){
-		audioSource.src = $(this).val();
+	$('#audio_input').on('change', function(e){
+		audioSource.src = URL.createObjectURL(e.target.files[0]);
 
 		$('#text_box').css('display', 'block').animate({
 			'opacity': 1,
